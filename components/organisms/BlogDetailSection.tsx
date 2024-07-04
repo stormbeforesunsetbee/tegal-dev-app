@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function BlogDetailSection({ blogDetail }: { blogDetail: any }) {
   return (
     <section
-      id="event"
+      id="blog"
       className="
         bg-white
         dark:bg-gray-900
