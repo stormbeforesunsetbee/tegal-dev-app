@@ -32,6 +32,7 @@ export default function Footer({ footerContent }: { footerContent: any }) {
         <CopyrightItem content={footerContent?.content} />
         <FooterNavigation
           instagramURL={footerContent?.instagram_url}
+          youtubeChannelURL={footerContent?.youtube_channel_url}
           linkedinURL={footerContent?.linkedin_url}
           githubURL={footerContent?.github_url}
         />

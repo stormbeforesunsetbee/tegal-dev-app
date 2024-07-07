@@ -3,10 +3,12 @@ import FooterRightNavigation from './FooterRightNavigation';
 
 export default function FooterNavigation({
   instagramURL,
+  youtubeChannelURL,
   linkedinURL,
   githubURL,
 }: {
   instagramURL: string;
+  youtubeChannelURL: string;
   linkedinURL: string;
   githubURL: string;
 }) {
@@ -24,6 +26,7 @@ export default function FooterNavigation({
       <FooterLeftNavigation />
       <FooterRightNavigation
         instagramURL={instagramURL}
+        youtubeChannelURL={youtubeChannelURL}
         linkedinURL={linkedinURL}
         githubURL={githubURL}
       />
