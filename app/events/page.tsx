@@ -5,13 +5,13 @@ import getEventsPageContent from '@/data/remote/strapi/single/get-events-page-co
 
 export default async function Events() {
   const eventsPageContent = await getEventsPageContent();
-  const headlineNewestEvents = await getAllNewestEventsByPage(1);
+  const newestEvents = await getAllNewestEventsByPage(1);
 
   return (
     <Template>
       <EventSection
         eventHeading={eventsPageContent?.data?.heading}
-        headlineNewestEvents={headlineNewestEvents?.data}
+        events={newestEvents?.data}
       />
     </Template>
   );

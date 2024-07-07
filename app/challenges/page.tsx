@@ -5,13 +5,13 @@ import getChallengesPageContent from '@/data/remote/strapi/single/get-challenges
 
 export default async function Challenges() {
   const challengesPageContent = await getChallengesPageContent();
-  const headlineNewestChallenges = await getAllNewestChallengesByPage(1);
+  const newestChallenges = await getAllNewestChallengesByPage(1);
 
   return (
     <Template>
       <ChallengeSection
         challengeHeading={challengesPageContent?.data?.heading}
-        headlineNewestChallenges={headlineNewestChallenges?.data}
+        challenges={newestChallenges?.data}
       />
     </Template>
   );

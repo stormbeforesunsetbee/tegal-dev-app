@@ -25,7 +25,7 @@ export default async function EventDetail({
       />
       <EventSection
         eventHeading="Event Lainnya"
-        headlineNewestEvents={filteredHeadlineNewestEventDetail}
+        events={filteredHeadlineNewestEventDetail}
       />
     </Template>
   );

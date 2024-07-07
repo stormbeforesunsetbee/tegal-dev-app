@@ -15,7 +15,7 @@ export default async function BlogsAuthor({
     <Template>
       <BlogSection
         blogHeading={`Blog oleh ${user[0].name}`}
-        headlineNewestBlogs={authorsBlogs?.data}
+        blogs={authorsBlogs?.data}
       />
     </Template>
   );

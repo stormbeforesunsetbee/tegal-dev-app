@@ -44,15 +44,15 @@ export default async function Home() {
       />
       <EventSection
         eventHeading={homePageContent?.data?.event_section_heading}
-        headlineNewestEvents={headlineNewestEvents?.data}
+        events={headlineNewestEvents?.data}
       />
       <ChallengeSection
         challengeHeading={homePageContent?.data?.challenge_section_heading}
-        headlineNewestChallenges={headlineNewestChallenges?.data}
+        challenges={headlineNewestChallenges?.data}
       />
       <BlogSection
         blogHeading={homePageContent?.data?.blog_section_heading}
-        headlineNewestBlogs={headlineNewestBlogs?.data}
+        blogs={headlineNewestBlogs?.data}
       />
       <AboutSection
         aboutHeading={homePageContent?.data?.about_section_heading}

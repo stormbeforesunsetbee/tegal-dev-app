@@ -5,13 +5,13 @@ import getBlogsPageContent from '@/data/remote/strapi/single/get-blogs-page-cont
 
 export default async function Blogs() {
   const blogsPageContent = await getBlogsPageContent();
-  const headlineNewestBlogs = await getAllNewestBlogsByPage(1);
+  const newestBlogs = await getAllNewestBlogsByPage(1);
 
   return (
     <Template>
       <BlogSection
         blogHeading={blogsPageContent?.data?.heading}
-        headlineNewestBlogs={headlineNewestBlogs?.data}
+        blogs={newestBlogs?.data}
       />
     </Template>
   );
