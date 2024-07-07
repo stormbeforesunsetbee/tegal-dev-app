@@ -1,12 +1,8 @@
 export default async function getAllMerchandises(page: number) {
-  try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_CMS_API_BASE_URL}/api/merchandises?sort=publishedAt:desc&pagination[page]=${page}&populate=*`,
-      { next: { revalidate: 0 } },
-    );
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_CMS_API_BASE_URL}/api/merchandises?sort=publishedAt:desc&pagination[page]=${page}&populate=*`,
+    { cache: 'no-store' },
+  );
 
-    return response.json();
-  } catch (error) {
-    throw new Error((error as Error).message);
-  }
+  return response.json();
 }

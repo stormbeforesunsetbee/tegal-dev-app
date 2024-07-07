@@ -1,11 +1,8 @@
 export default async function getBlogsPageContent() {
-  try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_CMS_API_BASE_URL}/api/blogs-page-content`,
-    );
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_CMS_API_BASE_URL}/api/blogs-page-content`,
+    { cache: 'no-store' },
+  );
 
-    return response.json();
-  } catch (error) {
-    throw new Error((error as Error).message);
-  }
+  return response.json();
 }
