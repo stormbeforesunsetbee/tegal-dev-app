@@ -8,10 +8,10 @@ import Container from '../templates/Container';
 
 export default function BlogSection({
   blogHeading,
-  headlineNewestBlogs,
+  blogs,
 }: {
   blogHeading: string;
-  headlineNewestBlogs: any;
+  blogs: any;
 }) {
   const pathname = usePathname();
 
@@ -40,7 +40,7 @@ export default function BlogSection({
     >
       <Container>
         <TextHeadingSection heading={blogHeading} />
-        {headlineNewestBlogs === null || headlineNewestBlogs?.length === 0 ? (
+        {blogs === null || blogs?.length === 0 ? (
           <p>
             {pathname === '/blogs'
               ? 'Belum ada blog nih!'
@@ -48,7 +48,7 @@ export default function BlogSection({
           </p>
         ) : (
           <>
-            <BlogItemList headlineNewestBlogs={headlineNewestBlogs} />
+            <BlogItemList blogs={blogs} />
             {pathname === '/blogs' ? (
               <div className="join">
                 <button

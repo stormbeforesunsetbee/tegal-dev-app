@@ -9,10 +9,10 @@ import { usePathname } from 'next/navigation';
 
 export default function EventSection({
   eventHeading,
-  headlineNewestEvents,
+  events,
 }: {
   eventHeading: string;
-  headlineNewestEvents: any;
+  events: any;
 }) {
   const pathname = usePathname();
 
@@ -36,7 +36,7 @@ export default function EventSection({
     >
       <Container>
         <TextHeadingSection heading={eventHeading} />
-        {headlineNewestEvents === null || headlineNewestEvents?.length === 0 ? (
+        {events === null || events?.length === 0 ? (
           <p>
             {pathname === '/events'
               ? 'Belum ada event nih!'
@@ -45,7 +45,7 @@ export default function EventSection({
         ) : (
           <>
             <Suspense>
-              <EventItemList headlineNewestEvents={headlineNewestEvents} />
+              <EventItemList events={events} />
             </Suspense>
             {pathname === '/events' ? (
               <div className="join">

@@ -9,10 +9,10 @@ import ChallengeItemList from '../molecules/ChallengeItemList';
 
 export default function ChallengeSection({
   challengeHeading,
-  headlineNewestChallenges,
+  challenges,
 }: {
   challengeHeading: string;
-  headlineNewestChallenges: any;
+  challenges: any;
 }) {
   const pathname = usePathname();
 
@@ -36,8 +36,7 @@ export default function ChallengeSection({
     >
       <Container>
         <TextHeadingSection heading={challengeHeading} />
-        {headlineNewestChallenges === null ||
-        headlineNewestChallenges?.length === 0 ? (
+        {challenges === null || challenges?.length === 0 ? (
           <p>
             {pathname === '/challenges'
               ? 'Belum ada challenge nih!'
@@ -46,7 +45,7 @@ export default function ChallengeSection({
         ) : (
           <>
             <Suspense>
-              <ChallengeItemList challenges={headlineNewestChallenges} />
+              <ChallengeItemList challenges={challenges} />
             </Suspense>
             {pathname === '/challenges' ? (
               <div className="join">

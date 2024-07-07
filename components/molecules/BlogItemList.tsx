@@ -1,11 +1,7 @@
 import { usePathname } from 'next/navigation';
 import BlogItem from './BlogItem';
 
-export default function BlogItemList({
-  headlineNewestBlogs,
-}: {
-  headlineNewestBlogs: any;
-}) {
+export default function BlogItemList({ blogs }: { blogs: any }) {
   const pathname = usePathname();
 
   return (
@@ -16,15 +12,15 @@ export default function BlogItemList({
           : 'overflow-x-scroll md:overflow-hidden md:justify-center'
       }`}
     >
-      {headlineNewestBlogs?.map((headlineBlog: any) => (
+      {blogs?.map((blog: any) => (
         <BlogItem
-          key={headlineBlog?.id}
-          blogSlug={headlineBlog?.slug}
-          blogImageSource={headlineBlog?.image?.url}
-          blogTitle={headlineBlog?.title}
-          blogPublishedDate={headlineBlog?.publishedAt}
-          blogCreator={headlineBlog?.user?.name}
-          blogBody={headlineBlog?.body}
+          key={blog?.id}
+          blogSlug={blog?.slug}
+          blogImageSource={blog?.image?.url}
+          blogTitle={blog?.title}
+          blogPublishedDate={blog?.publishedAt}
+          blogCreator={blog?.user?.name}
+          blogBody={blog?.body}
         />
       ))}
     </div>
