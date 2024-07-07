@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import EventItemInfo from './EventItemInfo';
 import Link from 'next/link';
+import moment from 'moment';
 
 export default function EventItem({
   eventSlug,
@@ -12,6 +13,7 @@ export default function EventItem({
   eventTotalRSVP,
   eventMaxRSVP,
   eventDescription,
+  eventPublishedDate,
 }: {
   eventSlug: string;
   eventImage: string;
@@ -22,12 +24,17 @@ export default function EventItem({
   eventTotalRSVP: string;
   eventMaxRSVP: string;
   eventDescription: string;
+  eventPublishedDate: string;
 }) {
   return (
     <div className="indicator active:scale-95 duration-300">
-      <span className="indicator-item badge badge-primary bg-[#1B71D8] text-white mr-3">
-        new
-      </span>
+      {moment(new Date().getTime()).diff(eventPublishedDate, 'days') < 7 ? (
+        <span className="indicator-item badge badge-primary bg-[#1B71D8] text-white mr-3">
+          new
+        </span>
+      ) : (
+        ''
+      )}
       <Link
         className="
           bg-[#FAFBFD]

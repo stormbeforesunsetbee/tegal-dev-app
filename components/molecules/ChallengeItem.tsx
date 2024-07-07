@@ -1,6 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
-import ChallengeItemInfo from "./ChallengeItemInfo";
+import Image from 'next/image';
+import Link from 'next/link';
+import ChallengeItemInfo from './ChallengeItemInfo';
+import moment from 'moment';
 
 export default function ChallengeItem({
   challengeSlug,
@@ -10,21 +11,28 @@ export default function ChallengeItem({
   challengeMaxCapacity,
   challengeDevPointReward,
   challengeDescription,
+  challengePublishedDate,
 }: {
-  challengeSlug: string,
-  challengeImage: string,
-  challengeName: string,
-  challengeTotalRegistered: number
-  challengeMaxCapacity: number,
-  challengeDevPointReward: number,
-  challengeDescription: string,
+  challengeSlug: string;
+  challengeImage: string;
+  challengeName: string;
+  challengeTotalRegistered: number;
+  challengeMaxCapacity: number;
+  challengeDevPointReward: number;
+  challengeDescription: string;
+  challengePublishedDate: string;
 }) {
-  return <div className="indicator active:scale-95 duration-300">
-    <span className="indicator-item badge badge-primary bg-[#1B71D8] text-white mr-3">
-      new
-    </span>
-    <Link
-      className="
+  return (
+    <div className="indicator active:scale-95 duration-300">
+      {moment(new Date().getTime()).diff(challengePublishedDate, 'days') < 7 ? (
+        <span className="indicator-item badge badge-primary bg-[#1B71D8] text-white mr-3">
+          new
+        </span>
+      ) : (
+        ''
+      )}
+      <Link
+        className="
       bg-[#FAFBFD]
       dark:bg-gray-900
       w-full
@@ -42,24 +50,25 @@ export default function ChallengeItem({
       dark:hover:bg-gray-700
       dark:border
       dark:border-gray-700"
-      href={`/challenges/${challengeSlug}`}
-    >
-      <Image
-        className="rounded-lg object-cover w-full 2xl:w-[170px]"
-        src={challengeImage}
-        alt="Challenge image"
-        width={170}
-        height={170}
-      />
-      <div className="flex flex-col gap-5">
-        <ChallengeItemInfo
-          challengeName={challengeName}
-          challengeTotalRegistered={challengeTotalRegistered}
-          challengeMaxCapacity={challengeMaxCapacity}
-          challengeDevPointReward={challengeDevPointReward}
-          challengeDescription={challengeDescription}
+        href={`/challenges/${challengeSlug}`}
+      >
+        <Image
+          className="rounded-lg object-cover w-full 2xl:w-[170px]"
+          src={challengeImage}
+          alt="Challenge image"
+          width={170}
+          height={170}
         />
-      </div>
-    </Link>
-  </div>
+        <div className="flex flex-col gap-5">
+          <ChallengeItemInfo
+            challengeName={challengeName}
+            challengeTotalRegistered={challengeTotalRegistered}
+            challengeMaxCapacity={challengeMaxCapacity}
+            challengeDevPointReward={challengeDevPointReward}
+            challengeDescription={challengeDescription}
+          />
+        </div>
+      </Link>
+    </div>
+  );
 }
