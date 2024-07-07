@@ -46,7 +46,8 @@ export default function BlogItem({
           hover:bg-gray-100
           dark:hover:bg-gray-700
           dark:border
-          dark:border-gray-700"
+          dark:border-gray-700
+          shadow-md"
       >
         <Image
           className="rounded-lg object-cover w-full 2xl:w-[140px]"

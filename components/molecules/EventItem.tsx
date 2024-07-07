@@ -53,7 +53,8 @@ export default function EventItem({
           hover:bg-gray-100
           dark:hover:bg-gray-700
           dark:border
-          dark:border-gray-700"
+          dark:border-gray-700
+          shadow-md"
         href={`/events/${eventSlug}`}
       >
         <Image

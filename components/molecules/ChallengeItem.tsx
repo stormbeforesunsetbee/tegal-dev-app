@@ -33,23 +33,24 @@ export default function ChallengeItem({
       )}
       <Link
         className="
-      bg-[#FAFBFD]
-      dark:bg-gray-900
-      w-full
-      min-w-[300px]
-      max-w-[360px]
-      2xl:max-w-[560px]
-      flex flex-col
-      2xl:flex-row
-      gap-5
-      p-3
-      rounded-xl
-      cursor-pointer
-      duration-300
-      hover:bg-gray-100
-      dark:hover:bg-gray-700
-      dark:border
-      dark:border-gray-700"
+          bg-[#FAFBFD]
+          dark:bg-gray-900
+          w-full
+          min-w-[300px]
+          max-w-[360px]
+          2xl:max-w-[560px]
+          flex flex-col
+          2xl:flex-row
+          gap-5
+          p-3
+          rounded-xl
+          cursor-pointer
+          duration-300
+          hover:bg-gray-100
+          dark:hover:bg-gray-700
+          border
+          dark:border-gray-700
+          shadow-md"
         href={`/challenges/${challengeSlug}`}
       >
         <Image
